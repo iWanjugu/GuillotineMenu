@@ -16,15 +16,12 @@ import com.yalantis.guillotine.sample.R;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 
-/**
- * Created by Dmytro Denysenko on 5/4/15.
- */
-public class MainActivity extends AppCompatActivity {
+public class Profile extends AppCompatActivity {
+
     LinearLayout prof;
     LinearLayout feed;
     LinearLayout activity;
     LinearLayout settings;
-
 
     private static final long RIPPLE_DURATION = 250;
 
@@ -39,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity);
+        setContentView(R.layout.profile);
         ButterKnife.inject(this);
 
 
@@ -48,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
             getSupportActionBar().setTitle(null);
         }
 
-        View guillotineMenu = LayoutInflater.from(this).inflate(R.layout.guillotine, null);
+        View guillotineMenu = LayoutInflater.from(this).inflate(R.layout.guillotine_profile, null);
         root.addView(guillotineMenu);
 
         new GuillotineAnimation.GuillotineBuilder(guillotineMenu, guillotineMenu.findViewById(R.id.guillotine_hamburger), contentHamburger)
@@ -67,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 switch(v.getId()){
                     case R.id.profile_group:
-                        Intent b = new Intent(MainActivity.this,Profile.class);
+                        Intent b = new Intent(Profile.this,Profile.class);
                         startActivity(b);
                         break;
 
@@ -80,7 +77,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 switch(v.getId()){
                     case R.id.feed_group:
-                        Intent b = new Intent(MainActivity.this,Feed.class);
+                        Intent b = new Intent(Profile.this,Feed.class);
                         startActivity(b);
                         break;
 
@@ -93,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 switch (v.getId()) {
                     case R.id.activity_group:
-                        Intent b = new Intent(MainActivity.this, MainActivity.class);
+                        Intent b = new Intent(Profile.this, MainActivity.class);
                         startActivity(b);
                         break;
 
@@ -106,7 +103,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 switch (v.getId()) {
                     case R.id.settings_group:
-                        Intent b = new Intent(MainActivity.this, Settings.class);
+                        Intent b = new Intent(Profile.this, Settings.class);
                         startActivity(b);
                         break;
 
@@ -114,4 +111,5 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
 }
